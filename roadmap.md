@@ -2,3 +2,4 @@
 - [ ] Add uploaded photo galleries, working navigation, contact form feedback, and responsive presentation.
 - [ ] Add page metadata, crawler access, and the supplied logo as the favicon.
 - [ ] Verify the home page and gallery interactions, then confirm the build.
+- [ ] Review the newly shared screen recording and refine the page to match it.
