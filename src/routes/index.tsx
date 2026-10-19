@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowDown, ArrowLeft, ArrowRight, ArrowUpRight, ChevronDown, ChevronLeft, ChevronRight, Instagram, Menu, X } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, ChevronLeft, ChevronRight, Instagram, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import logoAsset from "@/assets/jas-logo.jpg.asset.json";
