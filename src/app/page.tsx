@@ -13,7 +13,7 @@ interface Moment {
 
 const moments: Moment[] = [
   { photo: "hero-1", note: "I asked them to forget I was there. This is the first breath they let out together.", pos: "50% 38%" },
-  { photo: "hero-2", note: "The dog was never a guest. I let him lead, and followed the laughter.", pos: "50% 30%" },
+  { photo: "hero-2", note: "No count of three. I waited for the moment the pose gave way to joy.", pos: "50% 30%" },
   { photo: "hero-3", note: "I stepped back and let the architecture frame them: two small figures, one enormous promise.", pos: "52% 68%" },
 ];
 
@@ -425,7 +425,7 @@ export default function Home() {
             <div className="films-canvas fade-up" style={{ "--delay": "0.5s" } as CSSProperties}>
               <div className="gf">
                 <div className="gm">
-                  <img src="/images/c-3.webp" alt="A couple walking across a lawn" />
+                  <img src="/images/films-1.webp" alt="A couple walking across a lawn" />
                 </div>
               </div>
               <p className="films-link">
