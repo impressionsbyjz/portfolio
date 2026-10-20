@@ -13,10 +13,8 @@ interface Moment {
 
 const moments: Moment[] = [
   { photo: "hero-1", note: "I asked them to forget I was there. This is the first breath they let out together.", pos: "50% 38%" },
-  { photo: "b-1", note: "The dog was never a guest. I let him lead, and followed the laughter.", pos: "50% 30%" },
-  { photo: "c-1", note: "I stepped back and let the architecture frame them: two small figures, one enormous promise.", pos: "52% 68%" },
-  { photo: "b-4", note: "No count of three. I waited for the moment the pose gave way to joy.", pos: "50% 40%" },
-  { photo: "b-2", note: "Golden hour, no direction. I walked behind them and let the shore set the pace.", pos: "50% 62%" },
+  { photo: "hero-2", note: "The dog was never a guest. I let him lead, and followed the laughter.", pos: "50% 30%" },
+  { photo: "hero-3", note: "I stepped back and let the architecture frame them: two small figures, one enormous promise.", pos: "52% 68%" },
 ];
 
 const quotes = [
