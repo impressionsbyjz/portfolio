@@ -1,27 +1,55 @@
-# SEO-Ready Portfolio
+# Wedding Photography Portfolio
 
-create a new website portfolio, excalty  same as my refernce, and html, using nest js, 
+A modern wedding photography portfolio built with Next.js, featuring server-side rendering and optimized performance. The site showcases wedding albums, films, services, testimonials, and contact information with a beautiful, responsive design.
 
-and please make sure to add proper title, headinfs desscpriton, do proper seo , and crawlers configuration , so that it is properly reachable and teh content also, 
-i am sharing all the assets which will be required, later i will aslo add google analytics, and please make sure to proplery rneder the pages, make it super fast resposnive and proper
+## Features
 
-This project was built with [Lovable](https://lovable.dev).
-
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/12222e8f-ff1e-452b-b54a-8a9fb646eb4d).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
+- **Server-Side Rendering** with Next.js App Router
+- **Multiple Pages**: Home, Portfolio, Films, Services, Testimonials, FAQ, and Contact
+- **Responsive Design** optimized for all devices
+- **SEO Optimized** with proper metadata and structured data
+- **Modern UI** built with shadcn/ui components and Tailwind CSS v4
+- **Fast Performance** with Next.js optimization
 
 ## Development
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
 
 ```sh
 git clone <this-repository-url>
 cd <repository-name>
-npm i
+npm install
 npm run dev
+```
+
+## Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm start` - Start production server
+- `npm run lint` - Run ESLint
+- `npm run format` - Format code with Prettier
+
+## Project Structure
+
+```
+app/
+├── layout.tsx          # Root layout with providers
+├── page.tsx            # Home page
+├── portfolio/          # Portfolio albums page
+├── films/              # Wedding films page
+├── services/           # Services page
+├── testimonials/       # Testimonials page
+├── faq/                # FAQ page
+├── contact/            # Contact form page
+└── globals.css         # Global styles
+
+components/
+├── ui/                 # shadcn/ui components
+├── site-header.tsx     # Site navigation header
+└── site-footer.tsx     # Site footer
+
+src/
+└── lib/
+    └── utils.ts        # Utility functions
 ```
