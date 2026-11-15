@@ -8,6 +8,7 @@
   --text: #5e5045;
   --gold: #b08d57;
   --gold2: #94744a;
+  --gold-text: #856538;
   --line: #dacdb9;
   --hdr: rgba(251, 248, 242, 0.94);
   --script: "Pinyon Script", "Apple Chancery", cursive;
@@ -28,6 +29,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--hh) + 16px);
   background: var(--bg);
 }
 
@@ -36,8 +38,8 @@ body {
   background: var(--bg);
   color: var(--text);
   font-family: var(--sans);
-  font-weight: 300;
-  font-size: 0.85rem;
+  font-weight: 400;
+  font-size: 1rem;
   line-height: 1.85;
   letter-spacing: 0.025em;
   -webkit-font-smoothing: antialiased;
@@ -99,11 +101,11 @@ ul {
 /* Typography Utilities */
 .eyebrow {
   display: block;
-  font-size: 0.58rem;
+  font-size: 0.8rem;
   font-weight: 400;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: var(--gold2);
+  color: var(--gold-text);
 }
 
 /* Prevent flourishes/swashes from being cut off */
@@ -212,11 +214,11 @@ ul {
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
-  min-height: 2.7rem;
+  min-height: 3rem;
   padding: 0 1.45rem;
   background: var(--ink);
   color: var(--bg);
-  font-size: 0.58rem;
+  font-size: 0.8rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   border-radius: 2px;
@@ -227,7 +229,7 @@ ul {
 }
 
 .btn:hover {
-  background: var(--gold2);
+  background: var(--gold-text);
   color: #fff;
 }
 
@@ -246,7 +248,8 @@ ul {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  font-size: 0.58rem;
+  min-height: 3rem;
+  font-size: 0.8rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--ink);
@@ -258,7 +261,7 @@ ul {
 }
 
 .tl:hover {
-  color: var(--gold2);
+  color: var(--gold-text);
 }
 
 /* Custom Interactive Cursor */
@@ -376,7 +379,10 @@ ul {
 }
 
 .nav a {
-  font-size: 0.58rem;
+  display: inline-flex;
+  align-items: center;
+  min-height: 3rem;
+  font-size: 0.8rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   padding: 8px 0;
@@ -413,8 +419,10 @@ ul {
 }
 
 .menu-btn {
-  display: block;
-  font-size: 0.58rem;
+  display: inline-flex;
+  align-items: center;
+  min-height: 3rem;
+  font-size: 0.8rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   padding: 8px 0;
@@ -574,7 +582,7 @@ ul {
   align-items: center;
   gap: 0.75rem;
   color: #fff;
-  font-size: 0.58rem;
+  font-size: 0.8rem;
   letter-spacing: 0.3em;
   text-transform: uppercase;
   writing-mode: vertical-rl;
@@ -966,7 +974,7 @@ ul {
   font-family: var(--script);
   font-style: normal;
   font-size: 2.2rem;
-  color: var(--gold2);
+  color: var(--gold-text);
   line-height: 1;
 }
 
@@ -974,7 +982,7 @@ ul {
   display: block;
   margin-top: 0.35rem;
   font-family: var(--sans);
-  font-size: 0.58rem;
+  font-size: 0.8rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--text);
@@ -990,8 +998,8 @@ ul {
 }
 
 .quote-controls .round-btn {
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 3rem;
+  height: 3rem;
   border-radius: 50%;
   display: grid;
   place-items: center;
@@ -1097,10 +1105,10 @@ ul {
 
 .cfield label {
   display: block;
-  font-size: 0.58rem;
+  font-size: 0.8rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--gold2);
+  color: var(--gold-text);
 }
 
 .cfield input,
@@ -1158,11 +1166,11 @@ ul {
 }
 
 .footer-grid h2 {
-  font-size: 0.58rem;
+  font-size: 0.8rem;
   font-weight: 400;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--gold2);
+  color: var(--gold-text);
   margin-bottom: 0.9rem;
 }
 
@@ -1179,8 +1187,8 @@ ul {
 }
 
 .footer-social a {
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 3rem;
+  height: 3rem;
   border-radius: 50%;
   display: grid;
   place-items: center;
@@ -1245,8 +1253,9 @@ ul {
 .story-bar .bar-link {
   display: inline-flex;
   align-items: center;
+  min-height: 3rem;
   gap: 0.6rem;
-  font-size: 0.58rem;
+  font-size: 0.8rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--ink);
@@ -1363,7 +1372,7 @@ ul {
 }
 
 .story-foot .next-title:hover {
-  color: var(--gold2);
+  color: var(--gold-text);
 }
 
 .btn:active,
@@ -1420,8 +1429,8 @@ ul {
   position: absolute;
   display: grid;
   place-items: center;
-  width: 2.8rem;
-  height: 2.8rem;
+  width: 3rem;
+  height: 3rem;
   border: 1px solid rgba(255, 255, 255, 0.35);
   border-radius: 50%;
   color: #fff;
@@ -1454,7 +1463,7 @@ ul {
   bottom: 1.4rem;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 0.58rem;
+  font-size: 0.8rem;
   letter-spacing: 0.28em;
   color: rgba(255, 255, 255, 0.75);
 }

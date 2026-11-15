@@ -8,6 +8,7 @@ import { ArrowLeft, ArrowRight, ArrowUpRight, Instagram, X } from "lucide-react"
 interface Moment {
   photo: string;
   note: string;
+  alt: string;
   pos?: string;
 }
 
@@ -15,16 +16,19 @@ const moments: Moment[] = [
   {
     photo: "hero-1",
     note: "I asked them to forget I was there. This is the first breath they let out together.",
+    alt: "Couple sharing a quiet, unposed moment together",
     pos: "50% 38%",
   },
   {
     photo: "hero-2",
     note: "No count of three. I waited for the moment the pose gave way to joy.",
+    alt: "Couple laughing naturally during their wedding day",
     pos: "50% 30%",
   },
   {
     photo: "hero-3",
     note: "I stepped back and let the architecture frame them: two small figures, one enormous promise.",
+    alt: "Couple framed by grand wedding architecture",
     pos: "52% 68%",
   },
 ];
@@ -306,7 +310,7 @@ export default function Home() {
             onMouseEnter={() => setCursor("link")}
             onMouseLeave={() => setCursor("default")}
           >
-            <Image src="/logo.png" alt="Logo" width={50} height={50} priority />
+            <Image src="/logo.png" alt="Impressions by JZ logo" width={50} height={50} priority />
           </Link>
 
           <nav className="nav" aria-label="Primary">
@@ -401,6 +405,7 @@ export default function Home() {
         {/* HERO SECTION */}
         <section ref={heroRef} id="hero" className="hero-s" aria-label="Featured work">
           <div className="stick">
+            <h1 className="hq">Impressions by JZ</h1>
             {moments.map((m, idx) => {
               const offset = (idx - scrollProgress * (moments.length - 1)) * 80;
               return (
@@ -414,7 +419,7 @@ export default function Home() {
                 >
                   <img
                     src={`/images/${m.photo}.webp`}
-                    alt=""
+                    alt={m.alt}
                     style={{ objectPosition: m.pos ?? "50% 50%" }}
                   />
                 </div>
@@ -495,7 +500,7 @@ export default function Home() {
                           <img
                             key={imgName}
                             src={`/images/${imgName}.webp`}
-                            alt=""
+                            alt={`${album.title} preview ${imgIdx + 1}`}
                             className={currentImgIdx === imgIdx ? "on" : ""}
                           />
                         ))}
@@ -855,7 +860,7 @@ export default function Home() {
             <ArrowLeft size={15} /> Back
           </button>
           <div className="logo">
-            <Image src="/images/b-1.webp" alt="Logo" width={40} height={40} />
+            <Image src="/images/b-1.webp" alt="Impressions by JZ" width={40} height={40} />
           </div>
           <a
             href="#contact"
@@ -887,7 +892,11 @@ export default function Home() {
                   onMouseEnter={() => setCursor("big", "Zoom")}
                   onMouseLeave={() => setCursor("default")}
                 >
-                  <img src={`/images/${imgName}.webp`} alt={`Photo ${idx + 1}`} loading="lazy" />
+                  <img
+                    src={`/images/${imgName}.webp`}
+                    alt={`${selectedAlbum.title} photo ${idx + 1}`}
+                    loading="lazy"
+                  />
                 </button>
               ))}
             </div>
@@ -927,7 +936,7 @@ export default function Home() {
             <>
               <img
                 src={`/images/${selectedAlbum.images[lightboxIndex]}.webp`}
-                alt="Selected view"
+                alt={`${selectedAlbum.title} photo ${lightboxIndex + 1}`}
               />
               <button
                 className="lb-btn lb-close"
