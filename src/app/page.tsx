@@ -12,26 +12,77 @@ interface Moment {
 }
 
 const moments: Moment[] = [
-  { photo: "hero-1", note: "I asked them to forget I was there. This is the first breath they let out together.", pos: "50% 38%" },
-  { photo: "hero-2", note: "No count of three. I waited for the moment the pose gave way to joy.", pos: "50% 30%" },
-  { photo: "hero-3", note: "I stepped back and let the architecture frame them: two small figures, one enormous promise.", pos: "52% 68%" },
+  {
+    photo: "hero-1",
+    note: "I asked them to forget I was there. This is the first breath they let out together.",
+    pos: "50% 38%",
+  },
+  {
+    photo: "hero-2",
+    note: "No count of three. I waited for the moment the pose gave way to joy.",
+    pos: "50% 30%",
+  },
+  {
+    photo: "hero-3",
+    note: "I stepped back and let the architecture frame them: two small figures, one enormous promise.",
+    pos: "52% 68%",
+  },
 ];
 
 const quotes = [
-  { quote: "Jas made everything feel so effortless. The photos are even more beautiful than we imagined.", couple: "A & R", place: "Toronto, Ontario" },
-  { quote: "Our guests still talk about how calm the day felt. Jas disappeared into the moment and caught every one of them.", couple: "S & M", place: "Toronto, Ontario" },
-  { quote: "We forgot the camera was there. Looking through the gallery felt like living the day again.", couple: "N & K", place: "Oshawa, Ontario" },
+  {
+    quote:
+      "Jas made everything feel so effortless. The photos are even more beautiful than we imagined.",
+    couple: "A & R",
+    place: "Toronto, Ontario",
+  },
+  {
+    quote:
+      "Our guests still talk about how calm the day felt. Jas disappeared into the moment and caught every one of them.",
+    couple: "S & M",
+    place: "Toronto, Ontario",
+  },
+  {
+    quote:
+      "We forgot the camera was there. Looking through the gallery felt like living the day again.",
+    couple: "N & K",
+    place: "Oshawa, Ontario",
+  },
 ];
 
 const questions = [
-  { q: "Do you travel for destination weddings?", a: "Yes — I love destination weddings and travel worldwide. Travel details are included in your custom quote." },
-  { q: "What is included in your packages?", a: "Full-day coverage, a private online gallery, and print-ready edited images. Details are shared on enquiry." },
-  { q: "How many photos will we receive?", a: "It depends on your coverage, but expect a full story told in hundreds of carefully edited images." },
-  { q: "What is your photography style?", a: "Documentary and editorial: warm, natural light and honest in-between moments over stiff posing." },
-  { q: "Do you work with a second shooter?", a: "For larger weddings, yes. I'll recommend what suits your day best." },
-  { q: "Can we customize a package?", a: "Absolutely. Every package can be tailored to your timeline and needs." },
-  { q: "How do we book you?", a: "Send a message through the contact form. After a conversation, a signed agreement and retainer secure your date." },
-  { q: "What is your cancellation policy?", a: "The retainer is non-refundable, and the date can be rescheduled subject to availability. Full terms are in the agreement." },
+  {
+    q: "Do you travel for destination weddings?",
+    a: "Yes — I love destination weddings and travel worldwide. Travel details are included in your custom quote.",
+  },
+  {
+    q: "What is included in your packages?",
+    a: "Full-day coverage, a private online gallery, and print-ready edited images. Details are shared on enquiry.",
+  },
+  {
+    q: "How many photos will we receive?",
+    a: "It depends on your coverage, but expect a full story told in hundreds of carefully edited images.",
+  },
+  {
+    q: "What is your photography style?",
+    a: "Documentary and editorial: warm, natural light and honest in-between moments over stiff posing.",
+  },
+  {
+    q: "Do you work with a second shooter?",
+    a: "For larger weddings, yes. I'll recommend what suits your day best.",
+  },
+  {
+    q: "Can we customize a package?",
+    a: "Absolutely. Every package can be tailored to your timeline and needs.",
+  },
+  {
+    q: "How do we book you?",
+    a: "Send a message through the contact form. After a conversation, a signed agreement and retainer secure your date.",
+  },
+  {
+    q: "What is your cancellation policy?",
+    a: "The retainer is non-refundable, and the date can be rescheduled subject to availability. Full terms are in the agreement.",
+  },
 ];
 
 const albums = [
@@ -63,9 +114,21 @@ const services = [
 ];
 
 const steps = [
-  { number: "01", title: "Enquire", copy: "Send a message through the contact form. I reply within 24–48 hours." },
-  { number: "02", title: "Talk", copy: "We talk through your day and tailor a package to your timeline." },
-  { number: "03", title: "Secure your date", copy: "A signed agreement and retainer hold your date." },
+  {
+    number: "01",
+    title: "Enquire",
+    copy: "Send a message through the contact form. I reply within 24–48 hours.",
+  },
+  {
+    number: "02",
+    title: "Talk",
+    copy: "We talk through your day and tailor a package to your timeline.",
+  },
+  {
+    number: "03",
+    title: "Secure your date",
+    copy: "A signed agreement and retainer hold your date.",
+  },
 ];
 
 /* Helper to render word-by-word blur fade-in */
@@ -123,7 +186,7 @@ export default function Home() {
           }
         });
       },
-      { threshold: 0.15 }
+      { threshold: 0.15 },
     );
 
     const animatedElements = document.querySelectorAll(".reveal-group");
@@ -192,6 +255,13 @@ export default function Home() {
 
   // Image shuffling handler for albums (Smooth fade)
   const handleAlbumMouseEnter = (albumId: string, maxImages: number) => {
+    if (
+      !window.matchMedia("(hover: hover) and (pointer: fine)").matches ||
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+      return;
+    }
+
     setCursor("big", "View");
     if (albumIntervals.current[albumId]) clearInterval(albumIntervals.current[albumId]!);
     albumIntervals.current[albumId] = setInterval(() => {
@@ -240,19 +310,39 @@ export default function Home() {
           </Link>
 
           <nav className="nav" aria-label="Primary">
-            <a href="#portfolio" onMouseEnter={() => setCursor("link")} onMouseLeave={() => setCursor("default")}>
+            <a
+              href="#portfolio"
+              onMouseEnter={() => setCursor("link")}
+              onMouseLeave={() => setCursor("default")}
+            >
               Albums
             </a>
-            <a href="#films" onMouseEnter={() => setCursor("link")} onMouseLeave={() => setCursor("default")}>
+            <a
+              href="#films"
+              onMouseEnter={() => setCursor("link")}
+              onMouseLeave={() => setCursor("default")}
+            >
               Films
             </a>
-            <a href="#services" onMouseEnter={() => setCursor("link")} onMouseLeave={() => setCursor("default")}>
+            <a
+              href="#services"
+              onMouseEnter={() => setCursor("link")}
+              onMouseLeave={() => setCursor("default")}
+            >
               Services
             </a>
-            <a href="#testimonials" onMouseEnter={() => setCursor("link")} onMouseLeave={() => setCursor("default")}>
+            <a
+              href="#testimonials"
+              onMouseEnter={() => setCursor("link")}
+              onMouseLeave={() => setCursor("default")}
+            >
               Kind words
             </a>
-            <a href="#faq" onMouseEnter={() => setCursor("link")} onMouseLeave={() => setCursor("default")}>
+            <a
+              href="#faq"
+              onMouseEnter={() => setCursor("link")}
+              onMouseLeave={() => setCursor("default")}
+            >
               FAQ
             </a>
           </nav>
@@ -286,12 +376,24 @@ export default function Home() {
           <X size={16} />
         </button>
         <div>
-          <a href="#portfolio" onClick={() => setMobileMenuOpen(false)}>Albums</a>
-          <a href="#films" onClick={() => setMobileMenuOpen(false)}>Films</a>
-          <a href="#services" onClick={() => setMobileMenuOpen(false)}>Services</a>
-          <a href="#testimonials" onClick={() => setMobileMenuOpen(false)}>Kind words</a>
-          <a href="#faq" onClick={() => setMobileMenuOpen(false)}>FAQ</a>
-          <a href="#contact" onClick={() => setMobileMenuOpen(false)}>Enquire</a>
+          <a href="#portfolio" onClick={() => setMobileMenuOpen(false)}>
+            Albums
+          </a>
+          <a href="#films" onClick={() => setMobileMenuOpen(false)}>
+            Films
+          </a>
+          <a href="#services" onClick={() => setMobileMenuOpen(false)}>
+            Services
+          </a>
+          <a href="#testimonials" onClick={() => setMobileMenuOpen(false)}>
+            Kind words
+          </a>
+          <a href="#faq" onClick={() => setMobileMenuOpen(false)}>
+            FAQ
+          </a>
+          <a href="#contact" onClick={() => setMobileMenuOpen(false)}>
+            Enquire
+          </a>
         </div>
       </div>
 
@@ -319,7 +421,6 @@ export default function Home() {
               );
             })}
 
-
             <div className="hero-caps">
               {moments.map((m, idx) => (
                 <div key={m.photo} className={`hero-cap ${activeMoment === idx ? "on" : ""}`}>
@@ -344,10 +445,14 @@ export default function Home() {
             <h2 className="title">
               <SplitText text="Where art meets your most authentic self" />
             </h2>
-            <span className="orn fade-up" style={{ "--delay": "0.4s" } as CSSProperties} aria-hidden="true" />
+            <span
+              className="orn fade-up"
+              style={{ "--delay": "0.4s" } as CSSProperties}
+              aria-hidden="true"
+            />
             <p className="it fade-up" style={{ "--delay": "0.55s" } as CSSProperties}>
-              Capturing the quiet beauty of human connection and the raw emotions that define your story.
-              Beyond the pose, I seek the soul.
+              Capturing the quiet beauty of human connection and the raw emotions that define your
+              story. Beyond the pose, I seek the soul.
             </p>
           </div>
         </section>
@@ -356,11 +461,17 @@ export default function Home() {
         <section id="portfolio" className="sec alt reveal-group">
           <div className="wrap">
             <div className="head">
-              <span className="eyebrow fade-up" style={{ "--delay": "0.1s" } as CSSProperties}>Portfolio</span>
+              <span className="eyebrow fade-up" style={{ "--delay": "0.1s" } as CSSProperties}>
+                Portfolio
+              </span>
               <h2 className="title">
                 <SplitText text="The albums" />
               </h2>
-              <span className="orn fade-up" style={{ "--delay": "0.3s" } as CSSProperties} aria-hidden="true" />
+              <span
+                className="orn fade-up"
+                style={{ "--delay": "0.3s" } as CSSProperties}
+                aria-hidden="true"
+              />
               <p className="it fade-up" style={{ "--delay": "0.45s" } as CSSProperties}>
                 Choose a story and wander through the full gallery.
               </p>
@@ -412,13 +523,20 @@ export default function Home() {
         <section id="films" className="sec alt reveal-group">
           <div className="wrap">
             <div className="head">
-              <span className="eyebrow fade-up" style={{ "--delay": "0.1s" } as CSSProperties}>In motion</span>
+              <span className="eyebrow fade-up" style={{ "--delay": "0.1s" } as CSSProperties}>
+                In motion
+              </span>
               <h2 className="title">
                 <SplitText text="Wedding films" />
               </h2>
-              <span className="orn fade-up" style={{ "--delay": "0.3s" } as CSSProperties} aria-hidden="true" />
+              <span
+                className="orn fade-up"
+                style={{ "--delay": "0.3s" } as CSSProperties}
+                aria-hidden="true"
+              />
               <p className="it fade-up" style={{ "--delay": "0.45s" } as CSSProperties}>
-                The same in-between moments, in motion — the laughter, the vows and the quiet between.
+                The same in-between moments, in motion — the laughter, the vows and the quiet
+                between.
               </p>
             </div>
 
@@ -446,11 +564,17 @@ export default function Home() {
         <section id="services" className="sec reveal-group">
           <div className="wrap">
             <div className="head">
-              <span className="eyebrow fade-up" style={{ "--delay": "0.1s" } as CSSProperties}>Services</span>
+              <span className="eyebrow fade-up" style={{ "--delay": "0.1s" } as CSSProperties}>
+                Services
+              </span>
               <h2 className="title">
                 <SplitText text="What I do" />
               </h2>
-              <span className="orn fade-up" style={{ "--delay": "0.3s" } as CSSProperties} aria-hidden="true" />
+              <span
+                className="orn fade-up"
+                style={{ "--delay": "0.3s" } as CSSProperties}
+                aria-hidden="true"
+              />
               <p className="it fade-up" style={{ "--delay": "0.45s" } as CSSProperties}>
                 Weddings and pre-wedding shoots, each shaped around you, never a template.
               </p>
@@ -472,8 +596,14 @@ export default function Home() {
               ))}
             </div>
 
-            <p className="it fade-up" style={{ textAlign: "center", marginTop: "3.5rem", "--delay": "0.55s" } as CSSProperties}>
-              Every package includes full-day coverage, a private online gallery and print-ready edited images.
+            <p
+              className="it fade-up"
+              style={
+                { textAlign: "center", marginTop: "3.5rem", "--delay": "0.55s" } as CSSProperties
+              }
+            >
+              Every package includes full-day coverage, a private online gallery and print-ready
+              edited images.
             </p>
           </div>
         </section>
@@ -482,11 +612,17 @@ export default function Home() {
         <section id="process" className="sec alt reveal-group">
           <div className="wrap">
             <div className="head">
-              <span className="eyebrow fade-up" style={{ "--delay": "0.1s" } as CSSProperties}>The process</span>
+              <span className="eyebrow fade-up" style={{ "--delay": "0.1s" } as CSSProperties}>
+                The process
+              </span>
               <h2 className="title">
                 <SplitText text="How it works" />
               </h2>
-              <span className="orn fade-up" style={{ "--delay": "0.3s" } as CSSProperties} aria-hidden="true" />
+              <span
+                className="orn fade-up"
+                style={{ "--delay": "0.3s" } as CSSProperties}
+                aria-hidden="true"
+              />
             </div>
 
             <div className="steps fade-up" style={{ "--delay": "0.45s" } as CSSProperties}>
@@ -511,7 +647,9 @@ export default function Home() {
             </div>
 
             <div>
-              <span className="eyebrow fade-up" style={{ "--delay": "0.1s" } as CSSProperties}>Kind words</span>
+              <span className="eyebrow fade-up" style={{ "--delay": "0.1s" } as CSSProperties}>
+                Kind words
+              </span>
               <h2 className="title" style={{ margin: "0.8rem 0 1.8rem" }}>
                 <SplitText text="Love letters" />
               </h2>
@@ -528,7 +666,8 @@ export default function Home() {
 
               <div className="quote-controls">
                 <span className="eyebrow">
-                  {String(quoteIndex + 1).padStart(2, "0")} / {String(quotes.length).padStart(2, "0")}
+                  {String(quoteIndex + 1).padStart(2, "0")} /{" "}
+                  {String(quotes.length).padStart(2, "0")}
                 </span>
                 <div style={{ display: "flex", gap: "0.5rem" }}>
                   <button
@@ -559,11 +698,17 @@ export default function Home() {
         <section id="faq" className="sec alt reveal-group">
           <div className="wrap">
             <div className="head">
-              <span className="eyebrow fade-up" style={{ "--delay": "0.1s" } as CSSProperties}>Good to know</span>
+              <span className="eyebrow fade-up" style={{ "--delay": "0.1s" } as CSSProperties}>
+                Good to know
+              </span>
               <h2 className="title">
                 <SplitText text="Frequently asked" />
               </h2>
-              <span className="orn fade-up" style={{ "--delay": "0.3s" } as CSSProperties} aria-hidden="true" />
+              <span
+                className="orn fade-up"
+                style={{ "--delay": "0.3s" } as CSSProperties}
+                aria-hidden="true"
+              />
             </div>
 
             <div className="faq-list fade-up" style={{ "--delay": "0.45s" } as CSSProperties}>
@@ -592,13 +737,20 @@ export default function Home() {
         <section id="contact" className="sec reveal-group">
           <div className="wrap">
             <div className="head">
-              <span className="eyebrow fade-up" style={{ "--delay": "0.1s" } as CSSProperties}>Say hello</span>
+              <span className="eyebrow fade-up" style={{ "--delay": "0.1s" } as CSSProperties}>
+                Say hello
+              </span>
               <h2 className="title">
                 <SplitText text="Let's tell your story" />
               </h2>
-              <span className="orn fade-up" style={{ "--delay": "0.3s" } as CSSProperties} aria-hidden="true" />
+              <span
+                className="orn fade-up"
+                style={{ "--delay": "0.3s" } as CSSProperties}
+                aria-hidden="true"
+              />
               <p className="it fade-up" style={{ "--delay": "0.45s" } as CSSProperties}>
-                I&apos;d love to hear about your plans. Share a few details and I&apos;ll get back to you personally.
+                I&apos;d love to hear about your plans. Share a few details and I&apos;ll get back
+                to you personally.
               </p>
             </div>
 
@@ -631,7 +783,9 @@ export default function Home() {
                 <textarea id="message" name="message" />
               </div>
               <div className="f-wide cform-foot">
-                <p className="it" style={{ fontSize: "1rem" }}>I usually respond within 24–48 hours.</p>
+                <p className="it" style={{ fontSize: "1rem" }}>
+                  I usually respond within 24–48 hours.
+                </p>
                 <button
                   type="submit"
                   className="btn"
@@ -642,7 +796,9 @@ export default function Home() {
                 </button>
               </div>
               {formStatus && (
-                <p className="f-wide it" style={{ color: "var(--gold2)", marginTop: "0.5rem" }}>{formStatus}</p>
+                <p className="f-wide it" style={{ color: "var(--gold2)", marginTop: "0.5rem" }}>
+                  {formStatus}
+                </p>
               )}
             </form>
           </div>
@@ -666,18 +822,28 @@ export default function Home() {
           <div>
             <h2>Follow</h2>
             <div className="footer-social">
-              <a href="https://www.instagram.com/impressionsbyjz/" aria-label="Instagram"><Instagram size={15} /></a>
+              <a href="https://www.instagram.com/impressionsbyjz/" aria-label="Instagram">
+                <Instagram size={15} />
+              </a>
             </div>
           </div>
 
           <div className="r-text">
-            <p className="closing-script">For the ones<br />who feel deeply.</p>
+            <p className="closing-script">
+              For the ones
+              <br />
+              who feel deeply.
+            </p>
           </div>
         </div>
       </footer>
 
       {/* ALBUM DIALOG MODAL */}
-      <div className={`story-dialog ${openedAlbumId ? "open" : ""}`} role="dialog" aria-modal="true">
+      <div
+        className={`story-dialog ${openedAlbumId ? "open" : ""}`}
+        role="dialog"
+        aria-modal="true"
+      >
         <div className="story-bar">
           <button
             type="button"
@@ -774,7 +940,7 @@ export default function Home() {
                 className="lb-btn lb-prev"
                 onClick={() =>
                   setLightboxIndex(
-                    (i) => (i! - 1 + selectedAlbum.images.length) % selectedAlbum.images.length
+                    (i) => (i! - 1 + selectedAlbum.images.length) % selectedAlbum.images.length,
                   )
                 }
                 aria-label="Previous photo"
@@ -783,9 +949,7 @@ export default function Home() {
               </button>
               <button
                 className="lb-btn lb-next"
-                onClick={() =>
-                  setLightboxIndex((i) => (i! + 1) % selectedAlbum.images.length)
-                }
+                onClick={() => setLightboxIndex((i) => (i! + 1) % selectedAlbum.images.length)}
                 aria-label="Next photo"
               >
                 <ArrowRight size={16} />
